@@ -167,12 +167,16 @@ class _SchedulePageState extends State<SchedulePage> {
                                             color: Colors.white,
                                             fontWeight: FontWeight.bold),
                                       ),
-                                      Text(
-                                        "${widget.tasks![index].title}",
-                                        style: const TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 20,
-                                            fontWeight: FontWeight.bold),
+                                      SizedBox(
+                                        width: 0.65 *
+                                            MediaQuery.of(context).size.width,
+                                        child: Text(
+                                          "${widget.tasks![index].title}",
+                                          style: const TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 20,
+                                              fontWeight: FontWeight.bold),
+                                        ),
                                       ),
                                     ]),
                                 const Spacer(

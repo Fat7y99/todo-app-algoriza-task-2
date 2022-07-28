@@ -32,7 +32,7 @@ class _TasksDetailsState extends State<TasksDetails> {
           }
         }, builder: (context, state) {
           debugPrint('Build method executed in TasksDetails');
-          if (state is AppInitialState || state is GettingTasksState) {
+          if (state is AppInitialState) {
             // switch case for index
             switch (widget.index) {
               case 0:
@@ -70,7 +70,6 @@ class _TasksDetailsState extends State<TasksDetails> {
               itemBuilder: (context, index) {
                 return Container(
                   padding: const EdgeInsets.all(30),
-                  height: 100,
                   width: 100,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
@@ -105,10 +104,14 @@ class _TasksDetailsState extends State<TasksDetails> {
                         width: 30,
                         //red,orange,yellow,green
                       ),
-                      Text(
-                        "${widget.tasks![index].title}",
-                        style: const TextStyle(
-                            fontSize: 20, fontWeight: FontWeight.bold),
+                      SizedBox(
+                        width: 0.5 * MediaQuery.of(context).size.width,
+                        child: Text(
+                          "${widget.tasks![index].title}",
+                          overflow: TextOverflow.clip,
+                          style: const TextStyle(
+                              fontSize: 20, fontWeight: FontWeight.bold),
+                        ),
                       ),
                       const Spacer(),
                       widget.actions != null
